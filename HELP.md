@@ -1,7 +1,7 @@
 # Read Me First
 The following was discovered as part of building this project:
 
-* The original package name 'com.andersonHSM.spring-shop' is invalid and this project uses 'com.andersonHSM.springshop' instead.
+* The original package name 'com.andersonHSM.spring-shop-order-service' is invalid and this project uses 'com.andersonHSM.springshop' instead.
 
 # Getting Started
 
