@@ -21,31 +21,4 @@ public class SpringShopApplication {
 		SpringApplication.run(SpringShopApplication.class, args);
 	}
 
-	@Bean
-	public KafkaAdmin admin() {
-		Map<String, Object> configs = new HashMap<>();
-		configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, "host.docker.internal:9092");
-		return new KafkaAdmin(configs);
-	}
-
-	@Bean
-	public NewTopic topic() {
-		return TopicBuilder.name("topic1")
-				.partitions(10)
-				.replicas(1)
-				.build();
-	}
-
-	@KafkaListener(id = "myId", topics = "topic1")
-	public void listen(String in) {
-		System.out.println(in);
-	}
-
-	@Bean
-	public ApplicationRunner runner(KafkaTemplate<String, String> template) {
-		return args -> {
-			template.send("topic1", "my-id", "test message");
-		};
-	}
-
 }
